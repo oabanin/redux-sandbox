@@ -47,6 +47,10 @@ const store = createStore(reducer);
 // store.dispatch({type: 'INC'})
 //console.log(store.getState())
 
+const inc = () => {
+    return { type: 'INC' }
+}
+
 document.getElementById('dec').addEventListener('click', () => {
     store.dispatch({ type: 'DEC' })
 });
