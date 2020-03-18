@@ -47,23 +47,22 @@ const store = createStore(reducer);
 // store.dispatch({type: 'INC'})
 //console.log(store.getState())
 
-const inc = () => {
-    return { type: 'INC' }
-}
+const inc = () => ({ type: 'INC' });
+const dec = () => ({ type: 'DEC' });
+
+const rnd = (payload) => ({ payload, type: 'RND' });
 
 document.getElementById('dec').addEventListener('click', () => {
-    store.dispatch({ type: 'DEC' })
+    store.dispatch(dec())
 });
 
 document.getElementById('inc').addEventListener('click', () => {
-    store.dispatch({ type: 'INC' })
+    store.dispatch(inc())
 });
 
 document.getElementById('rnd').addEventListener('click', () => {
     const payload = Math.floor(Math.random() * 10)
-    store.dispatch({
-        payload, 
-        type: 'RND' })
+    store.dispatch(rnd(payload))
 });
 
 const update = () => {
