@@ -22,7 +22,7 @@ const store = createStore(reducer);
 //     rnd(payload);
 // });
 
-const update = () => {
+
     ReactDOM.render(
         <Provider store={store}>
             <App />
@@ -37,7 +37,7 @@ const update = () => {
         //         const payload = Math.floor(Math.random() * 10);
         //         rnd(payload);
         //     }} />
-};
+
 // update(update);
 // store.subscribe(update);
 
