@@ -2,13 +2,19 @@ import { createStore } from 'redux';
 import { inc, dec, rnd } from './actions';
 import reducer from './reducer';
 
-
 const store = createStore(reducer);
 const { dispatch } = store;
 
-const incDispatch = () => dispatch(inc());
-const decDispatch = () => dispatch(dec());
-const rndDispatch = (payload) => dispatch(rnd(payload));
+const bindActionCreator = (creator, dispatch) => (...args) => {
+    return dispatch(creator(...args));
+}
+
+
+
+
+const incDispatch = bindActionCreator(inc, dispatch)
+const decDispatch = bindActionCreator(dec, dispatch)
+const rndDispatch = bindActionCreator(rnd, dispatch)
 
 document.getElementById('dec').addEventListener('click', decDispatch);
 document.getElementById('inc').addEventListener('click', incDispatch);
