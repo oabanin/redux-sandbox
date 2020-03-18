@@ -4,18 +4,18 @@ import reducer from './reducer';
 
 
 const store = createStore(reducer);
+const { dispatch } = store;
 
-document.getElementById('dec').addEventListener('click', () => {
-    store.dispatch(dec())
-});
+const incDispatch = () => dispatch(inc());
+const decDispatch = () => dispatch(dec());
+const rndDispatch = (payload) => dispatch(rnd(payload));
 
-document.getElementById('inc').addEventListener('click', () => {
-    store.dispatch(inc())
-});
+document.getElementById('dec').addEventListener('click', decDispatch);
+document.getElementById('inc').addEventListener('click', incDispatch);
 
 document.getElementById('rnd').addEventListener('click', () => {
-    const payload = Math.floor(Math.random() * 10)
-    store.dispatch(rnd(payload))
+    const payload = Math.floor(Math.random() * 10);
+    rndDispatch(payload);
 });
 
 const update = () => {
