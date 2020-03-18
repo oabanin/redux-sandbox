@@ -1,56 +1,9 @@
-//const initialState = 0;
-
 import { createStore } from 'redux';
+import { inc, dec, rnd } from './actions';
+import reducer from './reducer';
 
-const reducer = (state = 0, action) => {
-
-    // if(state === undefined) {
-    //     return 0;
-    // }
-
-
-    // if(action.type === 'INC'){
-    //     return state + 1;
-    // }
-
-    switch (action.type) {
-        case 'INC':
-            return state + 1;
-
-        case 'DEC':
-            return state - 1;
-
-        case 'RND':
-            return state + action.payload;
-
-        default:
-            return state;
-    }
-};
-
-// let state = reducer(undefined, {});
-
-// state = reducer(state, {type : 'INC'});
-// state = reducer(state, {type : 'INC'});
-// console.log(state);
 
 const store = createStore(reducer);
-
-
-// store.subscribe(()=>{
-//     console.log(store.getState()) 
-// })
-
-
-//console.log(store.getState())
-// store.dispatch({type: 'INC'})
-// store.dispatch({type: 'INC'})
-//console.log(store.getState())
-
-const inc = () => ({ type: 'INC' });
-const dec = () => ({ type: 'DEC' });
-
-const rnd = (payload) => ({ payload, type: 'RND' });
 
 document.getElementById('dec').addEventListener('click', () => {
     store.dispatch(dec())
