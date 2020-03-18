@@ -21,18 +21,15 @@ const { inc, dec, rnd } = bindActionCreators(actions, dispatch)
 // });
 
 const update = () => {
-    // document
-    //     .getElementById('counter')
-    //     .innerHTML = store.getState()
+    ReactDOM.render(<Counter
+        counter={store.getState()}
+        inc={inc}
+        dec={dec}
+        rnd={() => {
+            const payload = Math.floor(Math.random() * 10);
+            rnd(payload);
+        }} />, document.getElementById('root'));
 };
-
+update(update);
 store.subscribe(update);
 
-ReactDOM.render (<Counter 
-    counter={store.getState()}
-    inc={inc}
-    dec={dec}
-    rnd={()=>{
-    const payload = Math.floor(Math.random() * 10);
-    rnd(payload);
-    }}/>, document.getElementById('root'));
