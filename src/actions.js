@@ -1,3 +1,8 @@
 export const inc = () => ({ type: 'INC' });
 export const dec = () => ({ type: 'DEC' });
-export const rnd = (payload) => ({ payload, type: 'RND' });
+export const rnd = () => {
+    return {
+        payload: Math.floor(Math.random() * 10),
+        type: 'RND'
+    }
+}

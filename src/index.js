@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 
 import App from './components/app';
 
-import { createStore, bindActionCreators } from 'redux';
+import { createStore} from 'redux';
 // import * as actions from './actions';
 
 import reducer from './reducer';
